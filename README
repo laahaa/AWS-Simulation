@@ -1,0 +1,32 @@
+What you have done in the assignment
+	- Building TCP sockets between client and AWS server
+	- Building UDP sockets between AWS server and three backend servers
+	- Transmitting files from client to AWS, AWS then segments it into three
+	parts and send to three backend servers to process them with the command 
+	from client. Three backend servers send back the outcome to AWS, AWS send
+	outcome to client after doing some computation.
+  
+What your code files are and what each one of them does. (Please do not
+repeat the project description, just name your code files and briefly mention
+what they do).
+	- client.c: send nums file which is needed to be processed by given 
+	command from client and receive outcome
+	- aws.c: transmitting file from client, segment it into three "same size" 
+	job to three backend servers. After receiving outcome from three servers,
+	it does some simple computation and send final result to client
+	- serverA.c serverB.c serverC.c: receive file from AWS, do computation to
+	files and send outcome back to AWS.
+  
+Reused Code: Did you use code from anywhere for your project? If not, say
+so. If so, say what functions and where they're from. (Also identify this with a
+comment in the source code.)
+	yes.
+	1. Socket frame from Beej guide
+	(http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html)
+	I used code from this website to build the frame of my all socket. Basically,
+	all socket related function I knew till now are from here. Building socket,
+	bind socket, connect, send/sendto, recv/recvfrom.
+	2. Read file in c
+	(http://stackoverflow.com/questions/3463426/in-c-how-should-i-read-a-text-file-and-print-all-strings)
+	Function of reading file is from this source. I modified it to adapt request
+	of this project.
